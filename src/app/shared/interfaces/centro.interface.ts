@@ -3,7 +3,8 @@ export interface Centro {
     centro?: string;
     codigo?: number;
     electores?: number;
-    location?: Location
+    password?: number;
+    location?: Location;
 }
 
 export interface Location {
@@ -22,6 +23,6 @@ export interface Psuv {
 export interface Poll {
     id?: string;
     data?: string;
-    cne?: string;
-    psuv?: string;
+    cne?: number;
+    psuv?: number;
 }

@@ -1,0 +1,46 @@
+<div class="chart-container">
+  <span *ngIf="type == 'line-chart'">
+    <ngx-charts-line-chart
+      [view]="view"
+      [results]="results"
+      [scheme]="options.colorScheme"
+      [gradient]="options.gradient"
+      [xAxis]="options.showXAxis"
+      [yAxis]="options.showYAxis"
+      [legend]="options.showLegend"
+      [legendTitle]="options.legendTitle"
+      [legendPosition]="options.legendPosition"
+      [showXAxisLabel]="options.showXAxisLabel"
+      [showYAxisLabel]="options.showYAxisLabel"
+      [xAxisLabel]="options.xAxisLabel"
+      [yAxisLabel]="options.yAxisLabel"
+      style="fill: grey">
+    </ngx-charts-line-chart>
+  </span>
+  <span *ngIf="type == 'pie-grid'">
+    <ngx-charts-pie-grid
+      [scheme]="options.colorScheme"
+      [results]="results"
+      (select)="onSelect($event)"
+      style="fill: grey">
+    </ngx-charts-pie-grid>
+  </span>
+  <span *ngIf="type == 'bar-horizontal'">
+    <ngx-charts-bar-horizontal
+      [view]="view"
+      [results]="results"
+      [scheme]="options.colorScheme"
+      [gradient]="options.gradient"
+      [xAxis]="options.showXAxis"
+      [yAxis]="options.showYAxis"
+      [legend]="options.showLegend"
+      [legendTitle]="options.legendTitle"
+      [legendPosition]="options.legendPosition"
+      [showXAxisLabel]="options.showXAxisLabel"
+      [showYAxisLabel]="options.showYAxisLabel"
+      [xAxisLabel]="options.xAxisLabel"
+      [yAxisLabel]="options.yAxisLabel"
+      style="fill: grey">
+  </ngx-charts-bar-horizontal>
+  </span>
+</div>

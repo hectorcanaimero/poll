@@ -1,0 +1,79 @@
+.circle{
+    position: relative;
+    margin: 0 auto;
+    padding: 50px;
+    border-radius: 60%;
+    height: 250px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    box-shadow: 3px 3px 4px rgba($color: #fff, $alpha: .30);
+    .text{
+        position: absolute;
+        width: 100%;
+        top: 35%;
+        left: 0%;
+        margin: 0;
+        text-align: center;
+        font-weight: 700;
+        font-size: 3rem;
+    }
+}
+
+h3{
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    thead{
+        background: #eee;
+        border-bottom: 1px solid rgb(200, 199, 199);;
+        tr{
+            th{
+                padding: 10px 0;
+                text-transform: uppercase;
+                &:hover{
+                    background: rgb(208, 208, 208);
+                }
+            }
+         }
+    }
+    tbody{
+        tr{
+            th, td{
+                padding: 10px 0;
+                text-transform: uppercase;
+                text-align: center;
+            }
+            &:nth-child(odd) { background: #fff; }
+            &:nth-child(even) { background: #fafafa; }
+            &:hover{
+                background: #eee;
+            }
+        }
+    }
+}
+
+
+
+.red { 
+    background: rgb(158, 10, 10);
+    .text{ color: #fff; }
+}
+
+.blue { 
+    background: rgb(9, 107, 198);
+    .text{ color: #fff; }
+}
+
+.green { 
+    background: rgb(20, 173, 73);
+    .text{ color: #333333; }
+}
+
+@media(min-width: 768px) {
+    ion-footer{ display: none; }
+}
+

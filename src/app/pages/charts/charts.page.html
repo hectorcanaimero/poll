@@ -1,17 +1,59 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-icon color="warning" slot="start" name="arrow-back-circle"
+  <ion-toolbar  mode="ios">
+    <ion-icon color="danger" slot="start" name="arrow-back-circle"
       class="ion-padding-start" size="large" (click)="onBack()"></ion-icon>
     <ion-title>Graficos: {{ items.centro.data.centro}}</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-grid fixed>
-    <ion-row>
-      <ion-col size="6">
-        <!-- <google-chart [data]="items.poll.data"></google-chart> -->
+    <ion-row class="ion-padding-vertical">
+      <ion-col size="12">
+        <div class="ion-padding-vertical" (resized)="onResized12($event)">
+          <h3>Participación por Hora</h3>
+          <app-graphics type="line-chart" [options]="lines" [results]="poll" [view]="view"></app-graphics>
+        </div>
       </ion-col>
-      <ion-col size="6"></ion-col>
+    </ion-row>
+    <ion-row class="ion-padding-vertical">
+      <ion-col size="12" size-md="6">
+        <div class="ion-padding-vertical" (resized)="onResized6($event)">
+          <h3>Participación por Centro Electoral</h3>
+          <app-graphics type="bar-horizontal" [options]="bars" [results]="global" [view]="view1"></app-graphics>
+        </div>
+        <div class="ion-padding-vertical">
+          <h3>Abstención</h3>
+          <div class="circle {{class.circle}}">
+            <p class="text">{{ abstencion }}%</p>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="12" size-md="6">
+        <h3>Tabela Registro</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Hora</th>
+              <th>Data</th>
+              <th>PSUV</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tab of table">
+              <th>{{ tab.data }}</th>
+              <td>{{ tab.cne }}</td>
+              <td>{{ tab.psuv }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
+<ion-footer>
+  <ion-toolbar [color]="class.footer">
+    <ion-title>
+      <h3>Abstención: {{ abstencion}}%</h3>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

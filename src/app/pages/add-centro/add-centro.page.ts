@@ -42,6 +42,7 @@ export class AddCentroPage implements OnInit {
       codigo: this.form.value.codigo,
       centro: this.form.value.centro,
       electores: this.form.value.electores,
+      password: this.form.value.password,
       location: {
         parroquia: this.form.value.parroquia,
         cuadrante: this.form.value.cuadrante

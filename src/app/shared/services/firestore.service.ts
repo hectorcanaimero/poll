@@ -28,6 +28,6 @@ export class FirestoreService {
       });
   }
 
-  pollCentro = (id: string) => this.fs.collection('centro').doc(id).collection('poll').get();
+  pollCentro = (id: string) => this.fs.collection('centro').doc(id).collection('poll').snapshotChanges();
 
 }

@@ -26,6 +26,7 @@ export class Tab3Page implements OnInit {
       this.items = [];
       result.forEach(({ payload }) => this.items.push({ id: payload.doc.id, data: payload.doc.data() }));
     });
+    console.log(this.items);
   }
 
   onNext = (item: string) => this.nav.navigateForward(item);

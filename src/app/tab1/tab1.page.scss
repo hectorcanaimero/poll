@@ -1,0 +1,42 @@
+.circle{
+    position: relative;
+    margin: 0 auto;
+    padding: 50px;
+    border-radius: 60%;
+    height: 250px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    box-shadow: 3px 3px 4px rgba($color: #fff, $alpha: .30);
+    .text{
+        position: absolute;
+        width: 100%;
+        top: 35%;
+        left: 0%;
+        margin: 0;
+        text-align: center;
+        font-weight: 700;
+        font-size: 3rem;
+    }
+}
+
+h3{
+    text-align: center;
+}
+
+
+.red { 
+    background: rgb(158, 10, 10);
+    .text{ color: #fff; }
+}
+
+.blue { 
+    background: rgb(9, 107, 198);
+    .text{ color: #fff; }
+}
+
+.green { 
+    background: rgb(20, 173, 73);
+    .text{ color: #333333; }
+}
