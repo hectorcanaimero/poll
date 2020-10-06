@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "psuv-poll": {
+      "hosting": {
+        "app": [
+          "psuv-poll"
+        ]
+      }
+    }
+  }
+}

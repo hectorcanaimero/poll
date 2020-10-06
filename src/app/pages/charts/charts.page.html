@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon color="warning" slot="start" name="arrow-back-circle"
+      class="ion-padding-start" size="large" (click)="onBack()"></ion-icon>
+    <ion-title>Graficos: {{ items.centro.data.centro}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6">
+        <!-- <google-chart [data]="items.poll.data"></google-chart> -->
+      </ion-col>
+      <ion-col size="6"></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

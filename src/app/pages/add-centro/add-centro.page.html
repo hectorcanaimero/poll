@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon color="warning" slot="start" name="arrow-back-circle"
+      class="ion-padding-start" size="large" (click)="onBack()"></ion-icon>
+    <ion-title>Agregar Centro</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="form">
+    <ion-grid fixed>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="12" size-md="6" size-xl="5">
+          <h3>Centro Electoral</h3>
+          <ion-item>
+            <ion-label position="floating">Codigo Centro</ion-label>
+            <ion-input type="number" inputmode="numeric" formControlName="codigo"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Centro Electoral</ion-label>
+            <ion-input type="text" formControlName="centro"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Electores</ion-label>
+            <ion-input type="number" inputmode="numeric" formControlName="electores"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Parroquia</ion-label>
+            <ion-select cancelText="Cancelar"  formControlName="parroquia">
+              <ion-select-option [value]="item"  
+                *ngFor="let item of['santa-rita', 'francisco-miranda', 'monsenor-feliciano']">
+                {{ item.replace('-',' ').toUpperCase() }}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label>Cuadrante</ion-label>
+            <ion-select cancelText="Cancelar"  formControlName="cuadrante">
+              <ion-select-option [value]="item"  
+                *ngFor="let item of[1,2,3,4,5,6,7,8,9,10,11,12]">
+                Cuadrante - {{ item }}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" size-md="6" size-xl="5">
+          <h3>Responsable del Centro</h3>
+          <ion-item>
+            <ion-label position="floating">Cedula</ion-label>
+            <ion-input type="number" inputmode="numeric" formControlName="cedula"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input type="text" formControlName="name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Telefono</ion-label>
+            <ion-input type="tel"  formControlName="phone"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Contrasena</ion-label>
+            <ion-input type="password" inputmode="numeric" formControlName="password"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
+<ion-footer (click)="onSubmit()">
+  <ion-toolbar color="warning">
+    <ion-title class="ion-text-center">Guardar Centro</ion-title>
+  </ion-toolbar>
+</ion-footer>
