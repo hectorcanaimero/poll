@@ -16,7 +16,5 @@ export class GraphicsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    timer(500).subscribe(() => console.log(this.results));
-  }
+  ngOnInit() { }
 }

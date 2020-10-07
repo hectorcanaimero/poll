@@ -7,7 +7,7 @@ import { Poll, Centro } from './../../shared/interfaces/centro.interface';
 import { FirestoreService } from 'src/app/shared/services/firestore.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 
-import { map } from 'rxjs/operators';
+import { last, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-charts',
@@ -63,6 +63,7 @@ export class ChartsPage implements OnInit {
   
   ngOnInit() {
     this.poll = [];
+    const last: any[] = [];
     const arr = [{ name: "CNE", series: []}, {name: "PSUV", series: [] }];
     this.act.url.subscribe((res) => {
       this.fs.selectId('centro', res[0].path).subscribe(({ payload }) => {
@@ -76,12 +77,15 @@ export class ChartsPage implements OnInit {
           arr[1].series.push({name: el.data, value: el.psuv});
         })
         this.poll = arr;
+        const last = doc.slice(-1)[0];
         this.global = [
-          { name: "CNE", value: doc.reduce((accum, item) => accum + item.cne, 0)},
-          {name: "PSUV", value: doc.reduce((accum, item) => accum + item.psuv, 0) }
+          { name: "ELECTORES", value: this.items.centro.data.electores},
+          { name: "CNE", value: last.cne},
+          { name: "ABSTENCION", value: this.items.centro.data.electores - last.cne },
+          {name: "PSUV", value: last.psuv },
+          { name: "OTROS", value: last.cne - last.psuv} 
         ];
-        console.log(this.poll);
-        this.abstencion = 100 - Math.round((this.global[0].value * 100) / this.items.centro.data.electores);
+        this.abstencion = 100 - Math.round((last.cne * 100) / this.items.centro.data.electores);
         if (this.abstencion <= 30) this.class = {circle: 'green', footer: 'success'};
         if (this.abstencion >= 60) this.class = { circle: 'red', footer: 'danger' };
       });

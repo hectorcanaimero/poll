@@ -5,6 +5,7 @@ export interface Centro {
     electores?: number;
     password?: number;
     location?: Location;
+    total?: Poll;
 }
 
 export interface Location {

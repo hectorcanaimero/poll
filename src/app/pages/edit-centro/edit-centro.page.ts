@@ -72,16 +72,22 @@ export class EditCentroPage implements OnInit {
       codigo: this.form.value.codigo,
       centro: this.form.value.centro,
       electores: this.form.value.electores,
+      password: +this.form.value.password,
       location: {
         parroquia: this.form.value.parroquia || this.items.centro.data.location.parroquia,
         cuadrante: this.form.value.cuadrante || this.items.centro.data.location.cuadrante
+      },
+      total: {
+        data: this.items.centro.data.total.data,
+        cne: this.items.centro.data.total.cne,
+        psuv: this.items.centro.data.total.psuv
       }
     };
     const psuv = {
       name: this.form.value.name,
       cedula: this.form.value.cedula,
       phone: this.form.value.phone,
-      password: this.form.value.password
+      password: +this.form.value.password
     }
     this.fs.updateCentro(id, centro, idPsuv, psuv);
     this.nav.navigateBack('tabs/tab3');

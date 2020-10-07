@@ -42,17 +42,15 @@ export class AddCentroPage implements OnInit {
       codigo: this.form.value.codigo,
       centro: this.form.value.centro,
       electores: this.form.value.electores,
-      password: this.form.value.password,
-      location: {
-        parroquia: this.form.value.parroquia,
-        cuadrante: this.form.value.cuadrante
-      }
+      password: +this.form.value.password,
+      location: { parroquia: this.form.value.parroquia, cuadrante: this.form.value.cuadrante },
+      total: { data: "0", cne: 0, psuv: 0}
     };
     const psuv = {
       name: this.form.value.name,
       cedula: this.form.value.cedula,
       phone: this.form.value.phone,
-      password: this.form.value.password
+      password: +this.form.value.password
     }
     this.fs.insertCentro(centro, psuv);
     this.nav.navigateBack('tabs/tab3');

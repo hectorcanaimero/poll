@@ -19,6 +19,7 @@ export class FirestoreService {
   insertCentro = (centro: any, psuv: any) => {
     this.fs.collection('centro').add(centro).then((index) => {
       this.fs.collection('centro').doc(index.id).collection('psuv').add(psuv);
+      this.fs.collection('centro').doc(index.id).collection('poll').add({data: "0", cne: 0, psuv: 0});
     }); 
   }
   updateCentro = (id: string, centro: any, idPsuv: string, psuv: any) => {
